@@ -75,10 +75,11 @@ class PlantsController < ApplicationController
     # binding.pry
     @plant = Plant.find(params[:id])
     @plant.destroy
+    @plants = Plant.all
 
     respond_to do |format|
       format.html { redirect_to plants_url }
-      format.js
+      format.js 
       format.json { head :no_content }
     end
   end
