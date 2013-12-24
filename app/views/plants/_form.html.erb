@@ -1,0 +1,32 @@
+<script>
+var editor = new wysihtml5.Editor("wysihtml5-textarea", { // id of textarea element
+  toolbar:      "wysihtml5-toolbar", // id of toolbar element
+  parserRules:  wysihtml5ParserRules // defined in parser rules set 
+});
+</script>
+
+<%= form_for(@plant) do |f| %>
+  <% if @plant.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@plant.errors.count, "error") %> prohibited this plant from being saved:</h2>
+
+      <ul>
+      <% @plant.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br />
+    <%= f.text_area :comment, class: "wysihtml5-textarea"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

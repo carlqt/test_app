@@ -1,0 +1,9 @@
+<% @plants.each do |plant| %>
+  <tr>
+    <td><%= plant.name %></td>
+    <td><%= plant.comment %></td>
+    <td><%= link_to 'Show', plant %></td>
+    <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
+    <td><%= link_to 'Destroy', plant, confirm: 'Are you sure?', :method => :delete, :remote => true, :class => "delete_plant" %></td>
+  </tr>
+<% end %>
