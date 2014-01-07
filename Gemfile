@@ -9,7 +9,8 @@ gem "twitter-bootstrap-rails"
 gem 'sqlite3'
 # gem "markitup-rails"
 gem 'bootstrap-wysihtml5-rails'
-gem "better_errors"
+gem "better_errors", "~> 0.7.0"
+gem 'binding_of_caller'
 gem "pry-rails", "~> 0.2.2"
 gem "pry-debugger", "~> 0.2.2"
 # Gems used only for assets and not required

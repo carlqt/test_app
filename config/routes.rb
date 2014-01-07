@@ -1,6 +1,18 @@
 TestApp::Application.routes.draw do
+  get "plants2/index"
+  get "plants2/:id" => 'plants2#show', as: 'plants2'
+  # delete "plants2/:id" => 'plants2#destroy',  :on => :collection
+
+  resources :plants2, :only => [:destroy] do
+    collection do
+      delete 'destroy_multiple'
+    end
+  end
+
+
+  
   resources :plants
-  root :to => 'plants#index' 
+  root :to => 'plants#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

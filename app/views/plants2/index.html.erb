@@ -1,0 +1,38 @@
+<h1>Plants2#index</h1>
+
+<h2>Listing plants</h2>
+
+<table class="show">
+  <tr>
+  	<th></th>
+    <th>Name</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<%= form_tag destroy_multiple_plants2_index_path, method: :delete do %>
+<%#= render 'plants2/plant' %>
+	<% @plants.each do |plant| %>
+	  <tr>
+	    <td><%= check_box_tag "plant[]", plant.id %></td>
+	    <td><%= plant.name %></td>
+	    <td><%= plant.comment %></td>
+	    <td><%= link_to 'Show', plant %></td>
+	    <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
+	    <td><%= link_to 'Destroy', plants2_path(plant), confirm: 'Are you sure?', :method => :delete, :class => "delete_plant" %></td>
+	  </tr>
+
+	<% end %>
+
+</table>
+
+<br />
+<%= submit_tag "Delete" %>
+<%= link_to 'New Plant', new_plant_path %>
+
+<% end %>
+
+<%#= button_to "Delete", {controller: :plants2, action: :destroy, id: "delete_button"}, method: :delete %>
+
